@@ -1,0 +1,20 @@
+# FROM apache/airflow:2.9.3
+
+# USER airflow
+
+# RUN pip install --no-cache-dir \
+#     dbt-core==1.11.6 \
+#     dbt-snowflake==1.11.6
+
+
+FROM apache/airflow:2.9.3
+
+USER root
+
+RUN apt-get update && apt-get install -y git
+
+USER airflow
+
+RUN pip install --no-cache-dir \
+    dbt-core==1.11.6 \
+    dbt-snowflake==1.11.5
